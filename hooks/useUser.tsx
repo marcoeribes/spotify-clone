@@ -1,5 +1,5 @@
 import { User } from "@supabase/auth-helpers-nextjs";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { 
     useSessionContext,
     useUser as useSupaUser
@@ -24,7 +24,7 @@ export interface Props {
     [propName: string]: any;
 };
 
-export const MyUserContextProvided = (props: Props) => {
+export const MyUserContextProvider = (props: Props) => {
     const {
         session,
         isLoading: isLoadingUser,
@@ -81,3 +81,12 @@ export const MyUserContextProvided = (props: Props) => {
 
     return <UserContext.Provider value={value} {...props} />
 }
+
+export const useUser = () => {
+    const context = useContext(UserContext);
+    if (context === undefined) {
+        throw new Error('useUser must be used within a MyUserContextProvider');
+    }
+
+    return context;
+} ; 
