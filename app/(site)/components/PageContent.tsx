@@ -3,6 +3,8 @@
 import SongItem from "@/Components/SongItem";
 import { Song } from "@/types";
 
+export const revalidate = 0;
+
 interface PageContentProps {
     songs: Song[]
 }
