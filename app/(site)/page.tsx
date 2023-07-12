@@ -1,7 +1,7 @@
 import Header from "@/Components/Header";
 import ListItem from "@/Components/ListItem";
 import getSongs from "@/actions/getSongs";
-import PageContent from "./pageContent";
+import PageContent from "./components/pageContent";
 
 export const revalidate = 0; // data will not be cached (will be up to date)
 
